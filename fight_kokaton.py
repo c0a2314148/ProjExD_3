@@ -92,7 +92,7 @@ class Bird:
 
 class Beam:
     def __init__(self, bird: "Bird"):
-        self.img = pg.image.load(f"fig/beam.png")
+        self.img = pg.image.load(f"fig/beam.png") #ビームの画像をロード
         self.rct = self.img.get_rect()
         self.rct.centery = bird.rct.centery
         self.rct.left = bird.rct.right
@@ -146,9 +146,9 @@ def main():
         for bomb in bombs:
             if bird.rct.colliderect(bomb.rct):
                 bird.change_img(8, screen)
-                fonto = pg.font.Font(None, 80)
+                fonto = pg.font.Font(None, 80) #ゲームオーバーの表示 
                 txt = fonto.render("Game Over", True, (255, 0, 0))
-                screen.blit(txt, [WIDTH // 2 - 150, HEIGHT // 2])
+                screen.blit(txt, [WIDTH//2-150, HEIGHT//2])
                 pg.display.update()
                 time.sleep(1)
                 return
